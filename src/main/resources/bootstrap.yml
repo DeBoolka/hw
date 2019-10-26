@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: Messenger
+#  datasource:
+#    url: jdbc:postgresql://192.168.2.6:31500/result_storage
+#    username: data_source
+#    password: 123
+#    driver-class-name: org.postgresql.Driver
+#    hikari:
+#      initialization-fail-timeout: 100000
+#      connectionTimeout: 60000
+#      maximumPoolSize: 5
+#  cloud:
+#    config:
+#      uri: https://localhost:8083
+#      fail-fast: true
+#      retry:
+#        initialInterval: 5000
+#        multiplier: 1.3
+#        maxInterval: 5000
+#        maxAttempts: 20
+#  devtools:
+#    remote:
+#      secret: 7A2279BB25EBE3DC45174B3737BFB
+
+server:
+  port: 9091
+#  ssl:
+#    enabled: true
+#    key-store: ${SSL_KEYSTORE_PATH:/secret/sds-self-signed-store.jks}
+#    key-store-password: ${SSL_KEYSTORE_PASSWORD:epamtver2019}
+#    key-store-type: jks
+#    key-alias: ${SSL_KEYSTORE_KEY_ALIAS:self_local_sans}
+
+logging:
+  file: /tmp/${spring.application.name}.log
+
+---
+#spring:
+#  profiles: dev
+#  cloud:
+#    config:
+#      enabled: false
+server:
+  ssl:
+    enabled: false

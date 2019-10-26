@@ -1,0 +1,83 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '2.0.2.RELEASE'
+}
+
+ext {
+    commonsIoVersion = '2.6'
+    hamcrestLibraryVersion = '2.1'
+    jacksonHibernateVersion = '2.9.8'
+    jetbrainsAnnotationsVersion = '17.0.0'
+    jolokiaVersion = '1.6.0'
+    junitLauncherVersion = '1.4.2'
+    junitVersion = '5.4.2'
+    mapStructVersion = '1.3.0.Final'
+    messageLibVersion = '1.6.0-SNAPSHOT'
+    palantirVersion = '0.19.2'
+    sdsCommonsVersion = '1.6.0-SNAPSHOT'
+    springBootVersion = '2.0.2.RELEASE'
+    springCloudVersion = springBootVersion
+    springBootLog4jVersion = '1.3.8.RELEASE'
+    swaggerVersion = '2.9.2'
+}
+
+group 'ru.mirea.dikanev.nikita'
+version '0.0.1'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = 'ru.mirea.dikanev.nikita.messenger.App'
+
+//configurations {
+//    all*.exclude module: 'spring-boot-starter-logging'
+//    all*.exclude module: 'logback-classic'
+//    all*.exclude module: 'logback-core'
+//    all*.exclude module: 'slf4j-simple'
+//    all*.exclude module: 'junit'
+//}
+
+dependencies {
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
+    annotationProcessor "org.projectlombok:lombok:1.18.8"
+    annotationProcessor "org.hibernate:hibernate-jpamodelgen:5.4.7.Final"
+    implementation "commons-io:commons-io:${commonsIoVersion}"
+    implementation "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+//    implementation "org.springframework.boot:spring-boot-starter-log4j:${springBootLog4jVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-quartz:${springBootVersion}"
+//    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.cloud:spring-cloud-starter-config:${springCloudVersion}"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudVersion}"
+//    implementation "org.springframework.cloud:spring-cloud-starter-security:${springCloudVersion}"
+    implementation "org.jetbrains:annotations:${jetbrainsAnnotationsVersion}"
+//    implementation "org.jolokia:jolokia-core:${jolokiaVersion}"
+//    implementation "org.liquibase:liquibase-core:3.8.0"
+    implementation "org.mapstruct:mapstruct:${mapStructVersion}"
+    implementation "org.projectlombok:lombok:1.18.8"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:${jacksonHibernateVersion}"
+//    runtimeOnly "org.postgresql:postgresql"
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:1.18.8"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springCloudVersion}"
+    testImplementation "org.springframework.security:spring-security-test:${springCloudVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+    testImplementation "org.junit.platform:junit-platform-launcher:${junitLauncherVersion}"
+    testImplementation "org.hamcrest:hamcrest-library:${hamcrestLibraryVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+//    testRuntimeOnly "com.h2database:h2"
+}
+
+test {
+    useJUnitPlatform()
+}
