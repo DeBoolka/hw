@@ -1,4 +1,4 @@
-package ru.mirea.dikanev.nikita.messenger.entity.auth;
+package ru.mirea.dikanev.nikita.messenger.dto.rest.auth;
 
 import lombok.Data;
 
@@ -6,9 +6,6 @@ import lombok.Data;
 public class UserLogin {
 
     private String login;
-
     private String password;
-
-    private String sold;
 
 }

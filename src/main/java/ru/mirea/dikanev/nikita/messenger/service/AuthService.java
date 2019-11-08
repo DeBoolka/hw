@@ -1,10 +1,10 @@
 package ru.mirea.dikanev.nikita.messenger.service;
 
-import ru.mirea.dikanev.nikita.messenger.entity.auth.Token;
-import ru.mirea.dikanev.nikita.messenger.entity.auth.UserLogin;
+import ru.mirea.dikanev.nikita.messenger.dto.rest.auth.UserLogin;
 
 public interface AuthService {
 
-    Token login(UserLogin login);
+    String login(UserLogin login);
 
+    void register(UserLogin login);
 }
