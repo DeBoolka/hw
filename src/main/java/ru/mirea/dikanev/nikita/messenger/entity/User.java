@@ -2,6 +2,8 @@ package ru.mirea.dikanev.nikita.messenger.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,9 +33,26 @@ public class User {
     @Column(name = "sold", columnDefinition = "TEXT")
     private String sold;
 
+    @Enumerated(EnumType.STRING)
+//    @Column(name = "role", columnDefinition = "ENUM")
+    private Role role = Role.NOT_CONFIRMED;
+
     public User(String login, String password, String sold) {
         this.login = login;
         this.password = password;
         this.sold = sold;
+    }
+
+    public User(String login, String password, String sold, Role role) {
+        this.login = login;
+        this.password = password;
+        this.sold = sold;
+        this.role = role;
+    }
+
+    public enum Role {
+        NOT_CONFIRMED,
+        USER,
+        ADMIN
     }
 }

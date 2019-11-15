@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/un_sec?useSSL=false&serverTimezone=UTC
+    url: jdbc:h2:mem:un_sec
     username: admin
     password: admin
   jpa:

@@ -1,6 +1,7 @@
 package ru.mirea.dikanev.nikita.messenger.controller;
 
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.mirea.dikanev.nikita.messenger.dto.rest.DataDto;
@@ -17,7 +18,7 @@ public class DataController {
     }
 
     @PutMapping("/save")
-    public void put(DataDto data){
+    public void put(@RequestBody DataDto data){
         dataService.put(data);
     }
 
