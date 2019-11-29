@@ -37,7 +37,7 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public void put(String token, String data) {
-        log.info("Put data: {}", data);
+//        log.info("Put data: {}", data);
         User user = authService.auth(token);
         if (Role.NOT_CONFIRMED.equals(user.getRole())) {
             throw new PermissionDeniedException("Permission Denied!");

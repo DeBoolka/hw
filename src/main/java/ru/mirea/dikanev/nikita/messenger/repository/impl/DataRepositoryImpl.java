@@ -21,7 +21,7 @@ public class DataRepositoryImpl implements DataRepository {
 
     @Override
     public void put(int userId, String data) {
-        log.info("Put data for userId: {}\nData: {}", userId, data);
+//        log.info("Put data for userId: {}\nData: {}", userId, data);
         jpaDataRepository.findDataByUserId(userId).ifPresent(d -> jpaDataRepository.deleteById(d.getId()));
         jpaDataRepository.save(new Data(jpaUsersRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("User not found!")), data));
@@ -29,7 +29,7 @@ public class DataRepositoryImpl implements DataRepository {
 
     @Override
     public Data get(int userId) {
-        log.info("Get data with user_Id: {}", userId);
+//        log.info("Get data with user_Id: {}", userId);
         return jpaDataRepository.findDataByUserId(userId).orElseGet(() -> {
             put(userId, "");
             return jpaDataRepository.findDataByUserId(userId)

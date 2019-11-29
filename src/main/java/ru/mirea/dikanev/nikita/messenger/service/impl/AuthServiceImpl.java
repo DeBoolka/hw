@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void register(UserLogin login) {
-        log.info("Register user: {}", login);
+//        log.info("Register user: {}", login);
         String sold = String.valueOf(System.currentTimeMillis());
         String soldPassword = getHash(login.getPassword(), sold);
 
@@ -50,7 +50,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginDto login(UserLogin login) {
-        log.info("Login user: {}", login);
+//        log.info("Login user: {}", login);
         User user = usersRepository.get(login.getLogin(), login.getPassword());
         return new LoginDto(user.getRole(), createToken(user.getId()));
     }

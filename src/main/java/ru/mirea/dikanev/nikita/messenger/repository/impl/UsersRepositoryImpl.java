@@ -27,13 +27,13 @@ public class UsersRepositoryImpl implements UsersRepository {
             throw new InternalException("User already exists");
         });
 
-        log.info("Save user in register with login: {}", login);
+//        log.info("Save user in register with login: {}", login);
         jpaUsersRepository.save(new User(login, psw, sold));
     }
 
     @Override
     public User get(String login, String password) {
-        log.info("Get user with login: {}", login);
+//        log.info("Get user with login: {}", login);
         String sold = jpaUsersRepository.findUserByLogin(login)
                 .orElseThrow(() -> new NotFoundException("Invalid login or password")).getSold();
 
