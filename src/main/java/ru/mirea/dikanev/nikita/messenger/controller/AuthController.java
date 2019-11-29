@@ -1,10 +1,10 @@
 package ru.mirea.dikanev.nikita.messenger.controller;
 
-import io.swagger.annotations.ApiResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.mirea.dikanev.nikita.messenger.dto.rest.auth.LoginDto;
 import ru.mirea.dikanev.nikita.messenger.dto.rest.auth.UserLogin;
 import ru.mirea.dikanev.nikita.messenger.service.AuthService;
 
@@ -24,7 +24,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody UserLogin login) {
+    public LoginDto login(@RequestBody UserLogin login) {
         return authService.login(login);
     }
 

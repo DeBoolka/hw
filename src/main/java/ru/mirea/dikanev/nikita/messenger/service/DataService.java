@@ -1,10 +1,8 @@
 package ru.mirea.dikanev.nikita.messenger.service;
 
-import ru.mirea.dikanev.nikita.messenger.dto.rest.DataDto;
-
 public interface DataService {
 
-    String get(int userId);
+    String get(String token);
 
-    void put(DataDto data);
+    void put(String token, String data);
 }

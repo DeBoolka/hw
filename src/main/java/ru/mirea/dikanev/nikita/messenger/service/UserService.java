@@ -10,6 +10,10 @@ public interface UserService {
 
     List<UserDto> getUsers();
 
-    void setRole(UserLogin userLogin, int targetUserId, Role role);
+    List<UserDto> getUsers(String token);
+
+    void setRole(String token, int targetUserId, Role role);
+
+    Role getRole(String token, int userId);
 
 }

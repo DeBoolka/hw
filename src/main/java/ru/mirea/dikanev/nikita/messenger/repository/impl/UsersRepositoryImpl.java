@@ -23,7 +23,7 @@ public class UsersRepositoryImpl implements UsersRepository {
 
     @Override
     public void register(String login, String psw, String sold) {
-        jpaUsersRepository.findByLoginAndPassword(login, psw).ifPresent(user -> {
+        jpaUsersRepository.findByLogin(login).ifPresent(user -> {
             throw new InternalException("User already exists");
         });
 
